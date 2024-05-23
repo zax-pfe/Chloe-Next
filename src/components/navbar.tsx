@@ -4,6 +4,7 @@ import Link from "next/link";
 import "../styles/navbar.css";
 import Image from "next/image";
 import clsx from "clsx";
+import NavLinks from "./navlinks";
 
 import { usePathname } from "next/navigation";
 
@@ -16,7 +17,7 @@ export default function Navbar() {
         <Link href="/">Chloe Girten</Link>
       </div>
       <div className="sub-container links-container">
-        <Link className="nav-item" href="/about">
+        {/* <Link className="nav-item" href="/about">
           About
         </Link>
         <Link className="nav-item" href="/gallery">
@@ -28,7 +29,8 @@ export default function Navbar() {
         </Link>
         <Link className="nav-item" href="/contact">
           Contact
-        </Link>
+        </Link> */}
+        <NavLinks />
       </div>
     </div>
   );
