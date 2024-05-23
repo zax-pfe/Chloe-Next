@@ -1,0 +1,61 @@
+.navbar-container-phone {
+  display: flex;
+  height: 10vh;
+}
+.sub-container-phone {
+  display: flex;
+  flex: 1;
+  align-items: center;
+}
+
+.logo-container-phone {
+  justify-content: start;
+  padding-left: 5vw;
+  font-size: 20px;
+}
+
+.hamburger-container {
+  justify-content: end;
+  padding-right: 5vw;
+}
+
+.icon {
+  height: 3vh;
+  width: auto;
+  cursor: pointer;
+}
+
+.menu-phone {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  padding: 2vh 0px 2vh 0px;
+}
+
+.slide-in {
+  animation: slide-in 0.3s cubic-bezier(0, 0, 0.4, 1) forwards;
+}
+
+.slide-out {
+  animation: slide-out 0.3s cubic-bezier(0, 0, 0.4, 1) forwards;
+}
+
+@keyframes slide-in {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-out {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}

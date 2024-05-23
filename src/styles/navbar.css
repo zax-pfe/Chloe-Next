@@ -1,0 +1,22 @@
+.navbar-container {
+  display: flex;
+  height: 12vh;
+}
+.sub-container {
+  display: flex;
+  flex: 1;
+  align-items: center;
+}
+
+.logo-container {
+  justify-content: start;
+  padding-left: 5vw;
+  font-size: 30px;
+}
+
+.links-container {
+  justify-content: end;
+  gap: 2vw;
+  padding-right: 5vw;
+  font-size: 20px;
+}
