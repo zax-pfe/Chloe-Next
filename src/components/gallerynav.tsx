@@ -5,10 +5,10 @@ import Image from "next/image";
 export default function GalleryNav() {
   return (
     <div className={"gallerynav-container"}>
-      <Link className="nav-item" href="/gallery/ceramics">
+      <Link className="gallerynav-item" href="/gallery/ceramics">
         Ceramics
       </Link>
-      <Link className="nav-item" href="/gallery/drawings">
+      <Link className="gallerynav-item" href="/gallery/drawings">
         Drawings
       </Link>
     </div>
