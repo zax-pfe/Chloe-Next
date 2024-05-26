@@ -15,25 +15,10 @@ model Artwork {
   id Int @id @default(autoincrement())
   name String
   categoryId Int
-  category Category @relation(fields: [categoryId], references: [id])
+  category String
   coverImage String
-  thumbnails Thumbnail[]
-
   materialType String
   dimensions String
   creationDate DateTime
 
-}
-
-model Category {
-
-  id Int @id @default(autoincrement())
-  name String
-  artworks Artwork[]
-}
-model Thumbnail{
-  id Int @id @default(autoincrement())
-  image String
-  artworkId Int
-  artwork Artwork @relation(fields: [artworkId], references:[id])
 }
