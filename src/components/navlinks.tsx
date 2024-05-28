@@ -9,7 +9,7 @@ const links = [
   { name: "About", href: "/about" },
   {
     name: "Gallery",
-    href: "/gallery/ceramics",
+    href: "/gallery",
   },
   { name: "Exhibitions", href: "/exhibitions" },
   { name: "Contact", href: "/contact" },

@@ -1,12 +1,15 @@
 import prisma from "@/lib/prisma";
 import * as actions from "@/actions";
 import Image from "next/image";
+import Gallery from "@/components/gallery";
 
 export default async function Page() {
   const artworks = await actions.fetchArtworksByCategory(1);
   return (
     <div>
-      {!artworks ? (
+      <h1>Selected Works</h1>
+      <Gallery filter="ceramique" />
+      {/* {!artworks ? (
         <div>No artworks found</div>
       ) : (
         artworks.map((artwork) => (
@@ -21,7 +24,7 @@ export default async function Page() {
             />
           </div>
         ))
-      )}
+      )} */}
     </div>
   );
 }
