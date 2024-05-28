@@ -6,9 +6,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  animation: fade-in linear;
-  animation-timeline: view();
-  animation-range-start: cover;
 }
 
 @media (max-width: 718px) {
@@ -19,8 +16,8 @@
     animation-range-end: 200px;
   }
   .grid-item-image {
-    max-width: 90%;
-    max-height: 90%;
+    max-width: 100%;
+    max-height: 100%;
   }
 }
 
@@ -59,6 +56,12 @@
 .artname {
   opacity: 0; /* Initially hidden */
   transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.grid-item a {
+  display: block;
+  width: 100%; /* Make the link take the full width of its container */
+  height: auto; /* Adjust height as necessary */
 }
 
 /* .hidden {

@@ -7,7 +7,7 @@ import "../styles/gallery.css";
 function Gallery() {
   return (
     <div>
-      <div className="grid-container" id="gallery">
+      <div className="grid-container">
         {artlist.map(({ name, cover }, index) => (
           <div key={name}>
             <GalleryItem imgData={cover} name={name} index={index} />

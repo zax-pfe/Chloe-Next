@@ -14,7 +14,7 @@ interface GalleryItemProps {
 function GalleryItem(props: GalleryItemProps) {
   return (
     <div className="grid-item">
-      <Link href={`/gallery/${props.index}`} scroll={false}>
+      <Link href={`/gallery/${props.index}`} scroll={false} legacyBehavior>
         <Image
           className="grid-item-image"
           src={props.imgData}
