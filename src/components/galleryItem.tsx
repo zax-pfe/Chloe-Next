@@ -3,30 +3,24 @@ import "../styles/galleryItem.css";
 import { Dispatch, SetStateAction } from "react";
 import type { StaticImageData } from "next/image";
 import Image from "next/image";
+import Link from "next/link";
 
 interface GalleryItemProps {
   imgData: StaticImageData;
-  id: string;
   name: string;
   index: number;
-  updateActivePage: Dispatch<SetStateAction<number>>;
-  // setAnimation: Dispatch<SetStateAction<string>>;
 }
 
 function GalleryItem(props: GalleryItemProps) {
-  function handleClick() {
-    // console.log({ id });
-    props.updateActivePage(props.index);
-  }
-
   return (
     <div className="grid-item">
-      <Image
-        className="grid-item-image"
-        src={props.imgData}
-        alt={props.name}
-        onClick={() => handleClick()}
-      />
+      <Link href={`/gallery/${props.index}`} scroll={false}>
+        <Image
+          className="grid-item-image"
+          src={props.imgData}
+          alt={props.name}
+        />
+      </Link>
       <p className="artname">{props.name}</p>
     </div>
   );
