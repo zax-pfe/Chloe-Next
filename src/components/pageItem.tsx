@@ -11,75 +11,88 @@ import { Dispatch, SetStateAction } from "react";
 import Link from "next/link";
 import Router from "next/router";
 import { motion, AnimatePresence } from "framer-motion";
-
-// export const MyComponent = ({ isVisible }) => (
-//   <AnimatePresence>
-//     {isVisible && (
-//       <motion.div
-//         initial={{ opacity: 0 }}
-//         animate={{ opacity: 1 }}
-//         exit={{ opacity: 0 }}
-//       />
-//     )}
-//   </AnimatePresence>
-// )
+import Thumbnails from "./thumbnails";
 
 interface PageItemProps {
   index: number;
+  setVisiblePage: Dispatch<SetStateAction<boolean>>;
 }
 
 function PageItem(props: PageItemProps) {
+  const [activeThumbnail, setActiveThumbnail] = useState(0);
   const router = useRouter();
   const artwork = artlist[props.index];
   console.log(`artwork ${artwork.name}`);
-  const [pageAnimation, setPageAnimation] = useState("slide-up");
-
-  useEffect(() => {
-    setTimeout(() => setPageAnimation(""), 500);
-  }, []);
+  const [activeImage, setActiveImage] = useState(artwork.cover);
 
   function handleCloseClick() {
-    setPageAnimation("slide-down");
-    setTimeout(() => {
-      router.push("/gallery");
-    }, 500);
+    props.setVisiblePage(false);
+  }
+
+  function handleNextClick() {
+    setActiveThumbnail(activeThumbnail + 1);
+    setActiveImage(artwork.thumbnail[activeThumbnail + 1]);
+  }
+
+  function handlePrevClick() {
+    setActiveThumbnail(activeThumbnail - 1);
+    setActiveImage(artwork.thumbnail[activeThumbnail - 1]);
   }
 
   return (
-    <div className={`pageItem-container ${pageAnimation}`}>
+    <div className={"pageItem-container"}>
       <div className="top-container test">
-        <Link href={"/gallery"} scroll={false}>
-          <Image
-            className="icon"
-            src={crossIcon}
-            alt="cross icon"
-            // onClick={() => router.back()}
-            // onClick={() => handleCloseClick()}
-          />
-        </Link>
+        <Image
+          className="icon"
+          src={crossIcon}
+          alt="cross icon"
+          onClick={() => handleCloseClick()}
+        />
       </div>
       <div className="main-container test">
         <div className="main-container-item test"></div>
         <div className="main-container-item test">
           <div className="main-container-sub-item test">
-            <Image className="icon" src={arrow_left} alt="arrow icon" />
+            <Image
+              className="icon"
+              src={arrow_left}
+              alt="arrow icon"
+              onClick={() => handlePrevClick()}
+            />
           </div>
           <div className="main-container-image test">
             <Image
               className="main-image"
-              src={artwork.cover}
+              src={activeImage}
               alt={`cover ${artwork.name}`}
             />
           </div>
           <div className="main-container-sub-item test">
-            <Image className="icon" src={arrow_right} alt="arrow icon" />
+            <Image
+              className="icon"
+              src={arrow_right}
+              alt="arrow icon"
+              onClick={() => handleNextClick()}
+            />
           </div>
         </div>
         <div className="main-container-item test"></div>
       </div>
       <div className="bot-container test">
-        <div className="bot-item description test"></div>
-        <div className="bot-item thumbnail-container test"></div>
+        <div className="bot-item description test">
+          <p>{artwork.name}</p>
+          <p>{artwork.materiaux}</p>
+          <p>{artwork.date}</p>
+          <p>{artwork.dimensions}</p>
+        </div>
+        <div className="bot-item thumbnail-container test">
+          <Thumbnails
+            thumbnailList={artwork.thumbnail}
+            setActiveImage={setActiveImage}
+            setActiveThumbnail={setActiveThumbnail}
+            activeThumbnail={activeThumbnail}
+          />
+        </div>
         <div className="bot-item placeholder test"></div>
       </div>
     </div>

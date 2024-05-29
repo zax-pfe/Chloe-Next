@@ -1,0 +1,19 @@
+.thumbnail {
+  height: 80%;
+  width: auto;
+  object-fit: cover;
+  cursor: pointer;
+  z-index: 1;
+  opacity: 0.5;
+  transition: opacity 0.1s ease-in-out;
+}
+
+.thumbnail:hover,
+.thumbnail.active {
+  opacity: 1;
+}
+
+.thumbnail-container {
+  display: flex;
+  min-width: 30vw;
+}

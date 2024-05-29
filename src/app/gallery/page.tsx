@@ -1,3 +1,9 @@
+import Gallery from "@/components/gallery";
+
 export default function Page() {
-  return <div></div>;
+  return (
+    <div>
+      <Gallery />
+    </div>
+  );
 }

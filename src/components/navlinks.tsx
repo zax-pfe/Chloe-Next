@@ -22,6 +22,7 @@ export default function NavLinks() {
       {links.map((link) => {
         return (
           <Link
+            scroll={false}
             key={link.name}
             href={link.href}
             className={clsx("nav-item", {
