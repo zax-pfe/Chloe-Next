@@ -3,15 +3,13 @@ import { useRouter } from "next/navigation";
 import React, { useState, useEffect } from "react";
 import { artlist } from "../data/artlist";
 import "../styles/pageItem.css";
-import crossIcon from "../../public/icons/x.png";
-import arrow_left from "../../public/icons/arrow-left.png";
-import arrow_right from "../../public/icons/arrow-right.png";
 import Image from "next/image";
 import { Dispatch, SetStateAction } from "react";
 import Link from "next/link";
 import Router from "next/router";
 import { motion, AnimatePresence } from "framer-motion";
 import Thumbnails from "./thumbnails";
+import { ArrowNextIcon, ArrowPrevtIcon, CrossIcon } from "../components/icons";
 
 interface PageItemProps {
   index: number;
@@ -44,55 +42,46 @@ function PageItem(props: PageItemProps) {
 
   return (
     <div className={"pageItem-container"}>
-      <div className="top-container test">
-        <Image
-          className="icon"
-          src={crossIcon}
-          alt="cross icon"
-          onClick={() => handleCloseClick()}
-        />
+      <div className="top-container">
+        <div onClick={() => handleCloseClick()}>
+          <CrossIcon />
+        </div>
       </div>
-      <div className="main-container test">
-        <div className="main-container-item test"></div>
-        <div className="main-container-item test">
-          <div className="main-container-sub-item test">
+      <div className="main-container">
+        <div className="main-container-item"></div>
+        <div className="main-container-item">
+          <div className="main-container-sub-item">
             {activeThumbnail > 0 && (
-              <Image
-                className="icon"
-                src={arrow_left}
-                alt="arrow icon"
-                onClick={() => handlePrevClick()}
-              />
+              <div onClick={() => handlePrevClick()}>
+                <ArrowPrevtIcon />
+              </div>
             )}
           </div>
-          <div className="main-container-image test">
+          <div className="main-container-image">
             <Image
               className="main-image"
               src={activeImage}
               alt={`cover ${artwork.name}`}
             />
           </div>
-          <div className="main-container-sub-item test">
+          <div className="main-container-sub-item">
             {activeThumbnail < index_max_thumbnail - 1 && (
-              <Image
-                className="icon"
-                src={arrow_right}
-                alt="arrow icon"
-                onClick={() => handleNextClick()}
-              />
+              <div onClick={() => handleNextClick()}>
+                <ArrowNextIcon />
+              </div>
             )}
           </div>
         </div>
-        <div className="main-container-item test"></div>
+        <div className="main-container-item"></div>
       </div>
-      <div className="bot-container test">
-        <div className="bot-item description test">
+      <div className="bot-container">
+        <div className="bot-item description">
           <p>{artwork.name}</p>
           <p>{artwork.materiaux}</p>
           <p>{artwork.date}</p>
           <p>{artwork.dimensions}</p>
         </div>
-        <div className="bot-item thumbnail-container test">
+        <div className="bot-item thumbnail-container">
           <Thumbnails
             thumbnailList={artwork.thumbnail}
             setActiveImage={setActiveImage}
@@ -100,7 +89,7 @@ function PageItem(props: PageItemProps) {
             activeThumbnail={activeThumbnail}
           />
         </div>
-        <div className="bot-item placeholder test"></div>
+        <div className="bot-item placeholder"></div>
       </div>
     </div>
   );

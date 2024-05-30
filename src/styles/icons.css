@@ -1,0 +1,14 @@
+.icon {
+  height: 30px;
+  width: auto;
+  padding: 4px;
+  cursor: pointer;
+  border-radius: 50%;
+
+  border: 1px solid #ffffff;
+  transition: border-color 0.3s;
+}
+
+.icon:hover {
+  border: 1px solid #5c5c5c;
+}

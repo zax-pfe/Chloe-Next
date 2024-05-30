@@ -100,12 +100,6 @@
   min-width: 20vw;
 }
 
-.icon {
-  height: 2vh;
-  width: auto;
-  cursor: pointer;
-}
-
 @keyframes slideUp {
   from {
     transform: translateY(100%);
