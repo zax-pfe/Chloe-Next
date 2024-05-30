@@ -16,6 +16,7 @@ import Thumbnails from "./thumbnails";
 interface PageItemProps {
   index: number;
   setVisiblePage: Dispatch<SetStateAction<boolean>>;
+  index_max: number;
 }
 
 function PageItem(props: PageItemProps) {
@@ -24,6 +25,8 @@ function PageItem(props: PageItemProps) {
   const artwork = artlist[props.index];
   console.log(`artwork ${artwork.name}`);
   const [activeImage, setActiveImage] = useState(artwork.cover);
+  const index_max_thumbnail = artwork.thumbnail.length;
+  console.log(index_max_thumbnail);
 
   function handleCloseClick() {
     props.setVisiblePage(false);
@@ -53,12 +56,14 @@ function PageItem(props: PageItemProps) {
         <div className="main-container-item test"></div>
         <div className="main-container-item test">
           <div className="main-container-sub-item test">
-            <Image
-              className="icon"
-              src={arrow_left}
-              alt="arrow icon"
-              onClick={() => handlePrevClick()}
-            />
+            {activeThumbnail > 0 && (
+              <Image
+                className="icon"
+                src={arrow_left}
+                alt="arrow icon"
+                onClick={() => handlePrevClick()}
+              />
+            )}
           </div>
           <div className="main-container-image test">
             <Image
@@ -68,12 +73,14 @@ function PageItem(props: PageItemProps) {
             />
           </div>
           <div className="main-container-sub-item test">
-            <Image
-              className="icon"
-              src={arrow_right}
-              alt="arrow icon"
-              onClick={() => handleNextClick()}
-            />
+            {activeThumbnail < index_max_thumbnail - 1 && (
+              <Image
+                className="icon"
+                src={arrow_right}
+                alt="arrow icon"
+                onClick={() => handleNextClick()}
+              />
+            )}
           </div>
         </div>
         <div className="main-container-item test"></div>

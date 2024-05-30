@@ -24,6 +24,8 @@ const cardVariants: Variants = {
 function Gallery() {
   const [visible, setVisible] = useState(false);
   const [activePage, setActivePage] = useState(0);
+  const index_max = artlist.length;
+
   return (
     <div>
       <div className="grid-container">
@@ -55,7 +57,12 @@ function Gallery() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 50 }}
           >
-            <PageItem index={activePage} setVisiblePage={setVisible} />;
+            <PageItem
+              index={activePage}
+              setVisiblePage={setVisible}
+              index_max={index_max}
+            />
+            ;
           </motion.div>
         )}
       </AnimatePresence>
