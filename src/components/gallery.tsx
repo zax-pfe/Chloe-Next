@@ -30,7 +30,6 @@ function Gallery() {
     <div>
       <div className="grid-container">
         {artlist.map(({ name, cover }, index) => (
-          // <motion.div key={name} className="card" variants={cardVariants}>
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -45,7 +44,6 @@ function Gallery() {
               setVisible={setVisible}
             />
           </motion.div>
-          // </motion.div>
         ))}
       </div>
 
