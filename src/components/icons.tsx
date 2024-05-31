@@ -8,7 +8,7 @@ export function ArrowNextIcon() {
   return <Image className="icon" src={arrow_right} alt="arrow icon" />;
 }
 
-export function ArrowPrevtIcon() {
+export function ArrowPrevIcon() {
   return <Image className="icon" src={arrow_left} alt="arrow icon" />;
 }
 

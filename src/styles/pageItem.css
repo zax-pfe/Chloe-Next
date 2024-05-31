@@ -100,7 +100,7 @@
   min-width: 20vw;
 }
 
-@keyframes slideUp {
+/* @keyframes slideUp {
   from {
     transform: translateY(100%);
   }
@@ -124,4 +124,4 @@
 
 .slide-down {
   animation: slideDown 0.5s cubic-bezier(0, 0, 0.4, 1) forwards;
-}
+} */

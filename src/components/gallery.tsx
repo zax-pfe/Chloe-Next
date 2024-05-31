@@ -5,6 +5,7 @@ import GalleryItem from "./galleryItem";
 import "../styles/gallery.css";
 import { motion, Variants, AnimatePresence } from "framer-motion";
 import PageItem from "./pageItem";
+import PageItemPhone from "./pageItemPhone";
 
 const cardVariants: Variants = {
   offscreen: {
@@ -20,6 +21,8 @@ const cardVariants: Variants = {
     },
   },
 };
+
+let mql = window.matchMedia("(max-width: 600px)");
 
 function Gallery() {
   const [visible, setVisible] = useState(false);
@@ -55,7 +58,7 @@ function Gallery() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 50 }}
           >
-            <PageItem
+            <PageItemPhone
               index={activePage}
               setVisiblePage={setVisible}
               index_max={index_max}

@@ -9,7 +9,7 @@ import Link from "next/link";
 import Router from "next/router";
 import { motion, AnimatePresence } from "framer-motion";
 import Thumbnails from "./thumbnails";
-import { ArrowNextIcon, ArrowPrevtIcon, CrossIcon } from "../components/icons";
+import { ArrowNextIcon, ArrowPrevIcon, CrossIcon } from "../components/icons";
 
 interface PageItemProps {
   index: number;
@@ -24,7 +24,6 @@ function PageItem(props: PageItemProps) {
   console.log(`artwork ${artwork.name}`);
   const [activeImage, setActiveImage] = useState(artwork.cover);
   const index_max_thumbnail = artwork.thumbnail.length;
-  console.log(index_max_thumbnail);
 
   function handleCloseClick() {
     props.setVisiblePage(false);
@@ -53,7 +52,7 @@ function PageItem(props: PageItemProps) {
           <div className="main-container-sub-item">
             {activeThumbnail > 0 && (
               <div onClick={() => handlePrevClick()}>
-                <ArrowPrevtIcon />
+                <ArrowPrevIcon />
               </div>
             )}
           </div>
