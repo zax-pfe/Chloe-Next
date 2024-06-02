@@ -22,12 +22,12 @@ const cardVariants: Variants = {
   },
 };
 
-let mql = window.matchMedia("(max-width: 600px)");
-
 function Gallery() {
   const [visible, setVisible] = useState(false);
   const [activePage, setActivePage] = useState(0);
   const index_max = artlist.length;
+  const threshold = 768;
+  const device = window.innerWidth <= threshold ? "phone" : "desktop";
 
   return (
     <div>
@@ -58,11 +58,19 @@ function Gallery() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 50 }}
           >
-            <PageItemPhone
-              index={activePage}
-              setVisiblePage={setVisible}
-              index_max={index_max}
-            />
+            {device === "phone" ? (
+              <PageItemPhone
+                index={activePage}
+                setVisiblePage={setVisible}
+                index_max={index_max}
+              />
+            ) : (
+              <PageItem
+                index={activePage}
+                setVisiblePage={setVisible}
+                index_max={index_max}
+              />
+            )}
             ;
           </motion.div>
         )}

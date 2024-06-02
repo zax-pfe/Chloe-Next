@@ -11,7 +11,7 @@
 @media (min-width: 719px) {
   .grid-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 0px; /* Espacement entre les carrés */
     padding: 5vh 7vw;
     /* box-shadow: 0 -10px 15px -5px rgba(0, 0, 0, 0.2); */

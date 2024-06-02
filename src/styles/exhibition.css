@@ -1,0 +1,6 @@
+.exhibition-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin: 10vh 15vw 15vh 15vw;
+}
