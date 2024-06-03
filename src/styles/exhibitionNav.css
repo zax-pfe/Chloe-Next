@@ -1,0 +1,17 @@
+.exhibition-navbar {
+  display: flex;
+  align-items: center;
+  padding-left: 40px;
+  height: 10vh;
+  font-size: 20px;
+  gap: 15px;
+}
+
+.fixed {
+  position: fixed;
+  top: 0;
+}
+
+.test {
+  border: solid black 1px;
+}

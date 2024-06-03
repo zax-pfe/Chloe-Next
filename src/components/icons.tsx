@@ -2,6 +2,7 @@ import Image from "next/image";
 import arrow_right from "../../public/icons/arrow-right.png";
 import arrow_left from "../../public/icons/arrow-left.png";
 import crossIcon from "../../public/icons/x.png";
+import returnIcon from "../../public/icons/return.png";
 import "../styles/icons.css";
 
 export function ArrowNextIcon() {
@@ -14,4 +15,8 @@ export function ArrowPrevIcon() {
 
 export function CrossIcon() {
   return <Image className="icon" src={crossIcon} alt="cross icon" />;
+}
+
+export function ReturnIcon() {
+  return <Image className="icon" src={returnIcon} alt="return icon" />;
 }

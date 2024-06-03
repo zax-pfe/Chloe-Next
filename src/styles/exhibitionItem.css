@@ -1,17 +1,19 @@
 .exhibitionItem-container {
   display: flex;
-  height: 35vh;
+  height: 50vh;
 }
 .exhibitionImage-container {
   width: 30vw;
+  display: flex;
+  justify-content: center;
 }
 
 .exhibitionImage {
   height: 100%;
-  width: 100%;
-  cursor: pointer;
-  object-fit: cover;
-  border-radius: 10px;
+  width: auto;
+  /* cursor: pointer; */
+  /* object-fit: cover; */
+  /* border-radius: 10px; */
 }
 .test {
   border: solid black 1px;

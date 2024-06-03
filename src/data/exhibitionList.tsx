@@ -5,12 +5,15 @@ import number6 from "../assets/numbers/chiffre-6.jpg";
 import number7 from "../assets/numbers/chiffre-7.jpg";
 import number8 from "../assets/numbers/chiffre-8.jpg";
 import number9 from "../assets/numbers/chiffre-9.jpg";
+import guebwiller from "../assets/exhibitions/guebwiller/guebwiller.png";
+import terres_communes from "../assets/exhibitions/terres_communes/terre commune.png";
+import brass from "../assets/exhibitions/brass/brass.jpeg";
 
 export const exhibitionlist = [
   {
-    name: "exhibition 7",
+    name: "brass_museum",
     id: "7",
-    cover: number7,
+    cover: brass,
     images: [number1, number2, number3],
     dates: "15 janvier - 20 fevrier 2023",
     lieu: "chauffontaine",
@@ -21,9 +24,9 @@ export const exhibitionlist = [
     date: "2018",
   },
   {
-    name: "exhibition 6",
+    name: "terres_communes",
     id: "6",
-    cover: number6,
+    cover: terres_communes,
     images: [number9, number8],
     dates: "10 mars - 15 avril 2023",
     lieu: "Lyon",
@@ -34,9 +37,9 @@ export const exhibitionlist = [
     date: "2019",
   },
   {
-    name: "exhibition 8",
+    name: "guebwiller",
     id: "8",
-    cover: number8,
+    cover: guebwiller,
     images: [number1, number7],
     dates: "20 avril - 30 mai 2023",
     lieu: "Bruxelles",

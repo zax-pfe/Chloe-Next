@@ -15,22 +15,21 @@ interface ExhibitionItemProps {
 
 function ExhibitionItem(props: ExhibitionItemProps) {
   return (
-    <div className="exhibitionItem-container test">
-      <div className="exhibitionImage-container test">
-        <Image
-          className="exhibitionImage"
-          src={props.imgData}
-          alt={props.name}
-        />
+    <Link href={`/exhibitions/${props.name}`} scroll={false} legacyBehavior>
+      <div className="exhibitionItem-container test">
+        <div className="exhibitionImage-container test">
+          <Image
+            className="exhibitionImage"
+            src={props.imgData}
+            alt={props.name}
+          />
+        </div>
+        <div className="exhibitionDescription test">
+          <h1>{props.name}</h1>
+          <p>{props.index}</p>
+        </div>
       </div>
-      <div className="exhibitionDescription test">
-        <h1>{props.name}</h1>
-        <p>{props.index}</p>
-      </div>
-
-      {/* <Link href={`/gallery/${props.index}`} scroll={false} legacyBehavior> */}
-      {/* </Link> */}
-    </div>
+    </Link>
   );
 }
 
