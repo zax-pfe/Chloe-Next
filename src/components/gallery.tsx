@@ -3,31 +3,17 @@ import React, { useState, useEffect } from "react";
 import { artlist } from "../data/artlist";
 import GalleryItem from "./galleryItem";
 import "../styles/gallery.css";
-import { motion, Variants, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import PageItem from "./pageItem";
 import PageItemPhone from "./pageItemPhone";
-
-const cardVariants: Variants = {
-  offscreen: {
-    y: 300,
-    opacity: 0.5,
-  },
-  onscreen: {
-    y: 0,
-    transition: {
-      type: "spring",
-      bounce: 0.4,
-      duration: 0.8,
-    },
-  },
-};
+import useDevice from "../app/utils/detectDevice";
 
 function Gallery() {
   const [visible, setVisible] = useState(false);
   const [activePage, setActivePage] = useState(0);
   const index_max = artlist.length;
   const threshold = 768;
-  const device = window.innerWidth <= threshold ? "phone" : "desktop";
+  const device = useDevice();
 
   return (
     <div>
