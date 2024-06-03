@@ -32,6 +32,10 @@
   align-items: center;
   gap: 15px;
   padding: 2vh 0px 2vh 0px;
+  position: absolute;
+  background-color: white;
+  z-index: 100;
+  width: 100vw;
 }
 
 .slide-in {
