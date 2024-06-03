@@ -1,7 +1,13 @@
 .exhibitionItem-container {
   display: flex;
   height: 50vh;
+  transition: box-shadow 0.3s;
 }
+
+.exhibitionItem-container:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
 .exhibitionImage-container {
   width: 30vw;
   display: flex;
@@ -23,4 +29,22 @@
   display: flex;
   flex-direction: column;
   padding-left: 20px;
+}
+
+.name {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.description {
+  padding-top: 20px;
+  font-size: 15;
+}
+
+.lieurelou {
+  display: flex;
+  justify-content: start;
+  align-items: end;
+  flex: 1;
+  padding: 20px;
 }

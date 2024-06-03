@@ -9,24 +9,35 @@ interface ExhibitionItemProps {
   imgData: StaticImageData;
   name: string;
   index: number;
+  id: string;
+  dates: string;
+  lieu: string;
+  descriptions: string[];
+
   // setActivePage: Dispatch<SetStateAction<number>>;
   // setVisible: Dispatch<SetStateAction<boolean>>;
 }
 
 function ExhibitionItem(props: ExhibitionItemProps) {
   return (
-    <Link href={`/exhibitions/${props.name}`} scroll={false} legacyBehavior>
-      <div className="exhibitionItem-container test">
-        <div className="exhibitionImage-container test">
+    <Link href={`/exhibitions/${props.id}`} scroll={false} legacyBehavior>
+      <div className="exhibitionItem-container">
+        <div className="exhibitionImage-container">
           <Image
             className="exhibitionImage"
             src={props.imgData}
             alt={props.name}
           />
         </div>
-        <div className="exhibitionDescription test">
-          <h1>{props.name}</h1>
-          <p>{props.index}</p>
+        <div className="exhibitionDescription">
+          <div className="general">
+            <h1 className="exhibition name">{props.name}</h1>
+            <p className="exhibition dates">{props.dates}</p>
+            <p className="exhibition description">{props.descriptions[0]}</p>
+          </div>
+          <div className="lieurelou">
+            <p className="exhibition lieu">{props.lieu}</p>
+          </div>
         </div>
       </div>
     </Link>

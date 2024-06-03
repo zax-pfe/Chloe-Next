@@ -6,6 +6,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  transition: box-shadow 0.3s;
 }
 
 @media (max-width: 718px) {
@@ -34,8 +35,11 @@
 }
 
 .grid-item:hover .artname {
-  opacity: 1; /* Make the name visible on hover */
+  opacity: 1;
 }
+/* .grid-item:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+} */
 
 .grid-item-image {
   width: auto;

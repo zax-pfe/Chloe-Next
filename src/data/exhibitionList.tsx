@@ -11,8 +11,8 @@ import brass from "../assets/exhibitions/brass/brass.jpeg";
 
 export const exhibitionlist = [
   {
-    name: "brass_museum",
-    id: "7",
+    name: "Brass museum",
+    id: "brass_museum",
     cover: brass,
     images: [number1, number2, number3],
     dates: "15 janvier - 20 fevrier 2023",
@@ -24,8 +24,8 @@ export const exhibitionlist = [
     date: "2018",
   },
   {
-    name: "terres_communes",
-    id: "6",
+    name: "Terres communes",
+    id: "terres_communes",
     cover: terres_communes,
     images: [number9, number8],
     dates: "10 mars - 15 avril 2023",
@@ -37,8 +37,8 @@ export const exhibitionlist = [
     date: "2019",
   },
   {
-    name: "guebwiller",
-    id: "8",
+    name: "Guebwiller",
+    id: "guebwiller",
     cover: guebwiller,
     images: [number1, number7],
     dates: "20 avril - 30 mai 2023",
