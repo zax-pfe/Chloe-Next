@@ -49,19 +49,27 @@ export default function NavbarPhone() {
       </div>
       {burgerState === "open" ? (
         <div className={`menu-phone ${menuAnimation}`}>
-          <Link className="menu-item" href="/about">
-            About
-          </Link>
-          <Link className="menu-item" href="/gallery">
-            Gallery
-          </Link>
+          <div onClick={handleClick}>
+            <Link className="menu-item" href="/about">
+              About
+            </Link>
+          </div>
+          <div onClick={handleClick}>
+            <Link className="menu-item" href="/gallery">
+              Gallery
+            </Link>
+          </div>
 
-          <Link className="menu-item" href="/exhibitions">
-            Exhibitions
-          </Link>
-          <Link className="menu-item" href="/contact">
-            Contact
-          </Link>
+          <div onClick={handleClick}>
+            <Link className="menu-item" href="/exhibitions">
+              Exhibitions
+            </Link>
+          </div>
+          <div onClick={handleClick}>
+            <Link className="menu-item" href="/contact">
+              Contact
+            </Link>
+          </div>
         </div>
       ) : (
         <div></div>
