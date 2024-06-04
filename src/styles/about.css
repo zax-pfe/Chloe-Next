@@ -1,0 +1,28 @@
+.about-container {
+  display: flex;
+  margin: 10vh 10vw 10vh 10vw;
+  gap: 50px;
+  height: 65vh;
+}
+
+.image-about {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+  max-width: 40vw;
+  /* border-radius: 15vh; */
+}
+
+.description-about {
+  padding: 20px;
+}
+
+h1 {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+p {
+  margin-top: 20px;
+  padding-left: 20px;
+}
