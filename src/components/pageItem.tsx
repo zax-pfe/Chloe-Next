@@ -24,6 +24,20 @@ function PageItem(props: PageItemProps) {
   console.log(`artwork ${artwork.name}`);
   const [activeImage, setActiveImage] = useState(artwork.cover);
   const index_max_thumbnail = artwork.thumbnail.length;
+  // window.onscroll = function () {
+  //   window.scrollTo(0, 0);
+  // };
+
+  // useEffect(() => {
+  //   const scrollbarWidth =
+  //     window.innerWidth - document.documentElement.clientWidth;
+  //   document.body.style.overflow = "hidden";
+  //   document.body.style.paddingRight = `${scrollbarWidth}px`;
+  //   return () => {
+  //     document.body.style.overflow = "visible";
+  //     document.body.style.paddingRight = "";
+  //   };
+  // }, []);
 
   function handleCloseClick() {
     props.setVisiblePage(false);

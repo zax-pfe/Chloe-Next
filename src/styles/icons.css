@@ -12,3 +12,11 @@
 .icon:hover {
   border: 1px solid #5c5c5c;
 }
+
+.icon-nohover {
+  height: 30px;
+  width: auto;
+  padding: 4px;
+  cursor: pointer;
+  border-radius: 50%;
+}

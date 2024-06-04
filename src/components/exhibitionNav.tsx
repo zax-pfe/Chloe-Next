@@ -1,24 +1,14 @@
-"use client";
 import "../styles/exhibitionNav.css";
 import Link from "next/link";
 import { ReturnIcon } from "./icons";
-import { useState, useEffect } from "react";
 
 function ExhibitionNav() {
-  const [scroll, setScroll] = useState(false);
-
-  useEffect(() => {
-    window.addEventListener("scroll", () => {
-      setScroll(window.scrollY > 10);
-    });
-  });
-
   return (
-    <div className={`exhibition-navbar test  ${scroll ? "sticky" : ""}`}>
-      <Link href="/exhibitions/" scroll={false}>
-        <div>
-          <ReturnIcon />
-          <div>exhibitions</div>
+    <div className={`exhibition-navbar  `}>
+      <Link legacyBehavior href="/exhibitions/">
+        <div className="flex cursor-pointer">
+          <ReturnIcon hover="icon-nohover" />
+          <div className="return-link">Exhibitions</div>
         </div>
       </Link>
     </div>

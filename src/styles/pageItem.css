@@ -7,6 +7,9 @@
   height: 100vh;
   background-color: white;
   z-index: 10;
+  height: 100%;
+  /* overflow: hidden; */
+  overflow-y: hidden;
 }
 .test {
   border: solid 1px black;
