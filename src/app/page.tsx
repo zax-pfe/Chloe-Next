@@ -1,11 +1,14 @@
 "use client";
 import Image from "next/image";
-import Navbar from "@/components/navbar";
-import NavbarPhone from "@/components/navbar-phone";
-import { useEffect } from "react";
-import useLockBodyScroll from "@/hooks/AdjustScrollBar";
+import useLockBodyScroll from "@/hooks/adjustScrollBar";
+import gif from "../assets/home/NE.gif";
+import "@/styles/home.css";
 
 export default function Home() {
   useLockBodyScroll();
-  return <div>home</div>;
+  return (
+    <div className="homeIllustration-container">
+      <Image className="homeIllustration" src={gif} alt="korean gif" />
+    </div>
+  );
 }
