@@ -3,8 +3,16 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import aboutImage from "../../assets/about/aboutImage.jpg";
 import "@/styles/about.css";
+import { useEffect } from "react";
 
 export default function AboutPage() {
+  useEffect(() => {
+    document.body.style.paddingRight = "17px";
+    return () => {
+      document.body.style.paddingRight = "";
+    };
+  }, []);
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 10 }}
