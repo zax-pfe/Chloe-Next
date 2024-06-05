@@ -5,13 +5,12 @@ import aboutImage from "../../assets/about/aboutImage.jpg";
 import "@/styles/about.css";
 import { useEffect } from "react";
 
+import useLockBodyScroll from "@/hooks/adjustScrollBar";
+import useDevice from "@/app/utils/detectDevice";
+
 export default function AboutPage() {
-  useEffect(() => {
-    document.body.style.paddingRight = "17px";
-    return () => {
-      document.body.style.paddingRight = "";
-    };
-  }, []);
+  const device = useDevice();
+  useLockBodyScroll(device);
 
   return (
     <motion.div

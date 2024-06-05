@@ -1,13 +1,9 @@
 "use client";
-import { useRouter } from "next/navigation";
 import React, { useState, useEffect } from "react";
 import { artlist } from "../data/artlist";
 import "../styles/pageItem.css";
 import Image from "next/image";
 import { Dispatch, SetStateAction } from "react";
-import Link from "next/link";
-import Router from "next/router";
-import { motion, AnimatePresence } from "framer-motion";
 import Thumbnails from "./thumbnails";
 import { ArrowNextIcon, ArrowPrevIcon, CrossIcon } from "../components/icons";
 
@@ -19,7 +15,6 @@ interface PageItemProps {
 
 function PageItem(props: PageItemProps) {
   const [activeThumbnail, setActiveThumbnail] = useState(0);
-  const router = useRouter();
   const artwork = artlist[props.index];
   console.log(`artwork ${artwork.name}`);
   const [activeImage, setActiveImage] = useState(artwork.cover);
