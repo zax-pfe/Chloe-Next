@@ -5,11 +5,34 @@
   height: 65vh;
 }
 
+@media (max-width: 900px) {
+  .about-container {
+    flex-direction: column;
+    margin: 10vh 5vw 10vh 5vw;
+  }
+
+  .image-about {
+    max-width: 90vw;
+  }
+}
+
+@media (min-width: 901px) {
+  .about-container {
+    flex-direction: row;
+    margin: 10vh 10vw 10vh 10vw;
+  }
+
+  .image-about {
+    max-width: 40vw;
+  }
+}
+
 .image-about {
   height: 100%;
   width: 100%;
   object-fit: contain;
-  max-width: 40vw;
+  border-radius: 10px;
+
   /* border-radius: 15vh; */
 }
 

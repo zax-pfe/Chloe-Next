@@ -1,8 +1,20 @@
 .exhibitionItem-container {
   display: flex;
-  height: 50vh;
+  min-height: 50vh;
   transition: box-shadow 0.3s;
   padding: 10px;
+}
+
+@media (max-width: 650px) {
+  .exhibitionItem-container {
+    flex-direction: column-reverse;
+  }
+}
+
+@media (min-width: 651) {
+  .exhibitionItem-container {
+    flex-direction: row;
+  }
 }
 
 .exhibitionItem-container:hover {
@@ -10,7 +22,7 @@
 }
 
 .exhibitionImage-container {
-  width: 30vw;
+  min-width: 25vw;
   display: flex;
   justify-content: center;
 }
@@ -18,9 +30,6 @@
 .exhibitionImage {
   height: 100%;
   width: auto;
-  /* cursor: pointer; */
-  /* object-fit: cover; */
-  /* border-radius: 10px; */
 }
 .test {
   border: solid black 1px;

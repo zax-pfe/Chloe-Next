@@ -21,7 +21,7 @@ interface ExhibitionItemProps {
 function ExhibitionItem(props: ExhibitionItemProps) {
   return (
     <Link href={`/exhibitions/${props.id}`} legacyBehavior>
-      <div className="exhibitionItem-container">
+      <div className="exhibitionItem-container test">
         <div className="exhibitionImage-container">
           <Image
             className="exhibitionImage"
