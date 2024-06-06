@@ -40,12 +40,12 @@
   padding: 20px;
 }
 
-h1 {
+.about-title {
   font-weight: bold;
   font-size: 20px;
 }
 
-p {
+.about-text {
   margin-top: 20px;
   padding-left: 20px;
 }
