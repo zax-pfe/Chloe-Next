@@ -23,6 +23,7 @@ export default function Thumbnails(props: ThumbnailProps) {
       {props.thumbnailList.map((thumbnailImage, index) => (
         <Image
           src={thumbnailImage}
+          placeholder="blur"
           key={index}
           alt={`thumbnailImage-${index}`}
           onClick={() => handleClick(thumbnailImage, index)}

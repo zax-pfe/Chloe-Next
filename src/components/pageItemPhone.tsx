@@ -66,6 +66,7 @@ function PageItemPhone(props: PageItemProps) {
           className="main-image-container-phone"
           src={activeImage}
           alt={`cover ${artwork.name}`}
+          placeholder="blur"
         />
         <div className="dots-container">
           {artwork.thumbnail.map((item, index) => (

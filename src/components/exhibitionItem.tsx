@@ -27,6 +27,7 @@ function ExhibitionItem(props: ExhibitionItemProps) {
             className="exhibitionImage"
             src={props.imgData}
             alt={props.name}
+            placeholder="blur"
           />
         </div>
         <div className="exhibitionDescription">

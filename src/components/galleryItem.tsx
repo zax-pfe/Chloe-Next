@@ -26,6 +26,7 @@ function GalleryItem(props: GalleryItemProps) {
         src={props.imgData}
         alt={props.name}
         onClick={() => handleClick()}
+        placeholder="blur"
       />
       {/* </Link> */}
       <p className="artname">{props.name}</p>
