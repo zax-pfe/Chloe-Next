@@ -1,6 +1,6 @@
 .exhibitionItem-container {
   display: flex;
-  min-height: 50vh;
+  /* min-height: 50vh; */
   transition: box-shadow 0.3s;
   padding: 10px;
 }
@@ -8,12 +8,14 @@
 @media (max-width: 650px) {
   .exhibitionItem-container {
     flex-direction: column-reverse;
+    min-height: 70vh;
   }
 }
 
 @media (min-width: 651) {
   .exhibitionItem-container {
     flex-direction: row;
+    height: 40vh;
   }
 }
 
@@ -22,7 +24,8 @@
 }
 
 .exhibitionImage-container {
-  min-width: 25vw;
+  min-width: 20vw;
+  height: 40vh;
   display: flex;
   justify-content: center;
 }
@@ -30,6 +33,7 @@
 .exhibitionImage {
   height: 100%;
   width: auto;
+  object-fit: cover;
 }
 .test {
   border: solid black 1px;
