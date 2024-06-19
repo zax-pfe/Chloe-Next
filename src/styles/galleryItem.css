@@ -62,11 +62,11 @@
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-.grid-item a {
+/* .grid-item a {
   display: block;
-  width: 100%; /* Make the link take the full width of its container */
-  height: auto; /* Adjust height as necessary */
-}
+  width: 100%; 
+  height: auto; 
+} */
 
 /* .hidden {
   opacity: 0;
