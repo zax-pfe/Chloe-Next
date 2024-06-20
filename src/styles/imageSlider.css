@@ -21,7 +21,7 @@
   height: 100%;
   display: flex;
   overflow-x: auto;
-  scroll-behavior: smooth;
+  scroll-behavior: auto;
   scrollbar-width: none;
   scroll-snap-type: x mandatory;
 }

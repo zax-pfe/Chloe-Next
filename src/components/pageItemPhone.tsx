@@ -1,6 +1,6 @@
 "use client";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { artlist } from "../data/artlist";
 import "../styles/pageItemPhone.css";
 import { Dispatch, SetStateAction } from "react";
@@ -25,9 +25,17 @@ function PageItemPhone(props: PageItemProps) {
   function handleCloseClick() {
     props.setVisiblePage(false);
   }
+  useEffect(() => {
+    const scrollbarWidth =
+      window.innerWidth - document.documentElement.clientWidth;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = "visible";
+    };
+  }, []);
 
   return (
-    <div className={"pageItem-container"}>
+    <div className={"pageItem-container-phone"}>
       <div className="button-container">
         <div className="button" onClick={() => handleCloseClick()}>
           <CrossIcon hover="icon-nohover" />

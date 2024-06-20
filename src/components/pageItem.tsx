@@ -16,7 +16,6 @@ interface PageItemProps {
 function PageItem(props: PageItemProps) {
   const [activeThumbnail, setActiveThumbnail] = useState(0);
   const artwork = artlist[props.index];
-  console.log(`artwork ${artwork.name}`);
   const [activeImage, setActiveImage] = useState(artwork.cover);
   const index_max_thumbnail = artwork.thumbnail.length;
 
@@ -36,19 +35,19 @@ function PageItem(props: PageItemProps) {
   }
 
   function handleNextClick() {
-    setActiveThumbnail(activeThumbnail + 1);
+    setActiveThumbnail((prev) => prev + 1);
     setActiveImage(artwork.thumbnail[activeThumbnail + 1]);
   }
 
   function handlePrevClick() {
-    setActiveThumbnail(activeThumbnail - 1);
+    setActiveThumbnail((prev) => prev - 1);
     setActiveImage(artwork.thumbnail[activeThumbnail - 1]);
   }
 
   return (
-    <div className={"pageItem-container"}>
+    <div className="pageItem-container">
       <div className="top-container">
-        <div onClick={() => handleCloseClick()}>
+        <div onClick={handleCloseClick}>
           <CrossIcon hover="icon" />
         </div>
       </div>
@@ -57,7 +56,7 @@ function PageItem(props: PageItemProps) {
         <div className="main-container-item">
           <div className="main-container-sub-item">
             {activeThumbnail > 0 && (
-              <div onClick={() => handlePrevClick()}>
+              <div onClick={handlePrevClick}>
                 <ArrowPrevIcon hover="icon" />
               </div>
             )}
@@ -71,7 +70,7 @@ function PageItem(props: PageItemProps) {
           </div>
           <div className="main-container-sub-item">
             {activeThumbnail < index_max_thumbnail - 1 && (
-              <div onClick={() => handleNextClick()}>
+              <div onClick={handleNextClick}>
                 <ArrowNextIcon hover="icon" />
               </div>
             )}

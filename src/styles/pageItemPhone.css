@@ -1,12 +1,13 @@
-.pageItem-container {
+.pageItem-container-phone {
   position: fixed;
   top: 0;
   display: flex;
   flex-direction: column;
   width: 100vw;
-  height: 100vh;
+  height: 90vh;
   background-color: white;
   z-index: 10;
+  overflow: hidden;
 }
 .test {
   border: solid black 1px;
@@ -16,9 +17,10 @@
   height: 8vh;
   display: flex;
   justify-content: flex-end;
-  align-items: center;
+  align-items: end;
   padding-right: 15px;
   gap: 20px;
+  padding-top: 10px;
 }
 
 .button {

@@ -5,3 +5,11 @@
 /* html {
   overflow-y: scroll;
 } */
+
+.no-scroll {
+  overflow: hidden;
+}
+
+/* body {
+  overflow: hidden;
+} */
