@@ -9,16 +9,22 @@ interface IconProps {
   hover: string;
 }
 
-export function ArrowNextIcon() {
-  return <Image className="icon" src={arrow_right} alt="arrow icon" />;
+export function ArrowNextIcon(props: IconProps) {
+  return (
+    <Image className={`${props.hover}`} src={arrow_right} alt="arrow icon" />
+  );
 }
 
-export function ArrowPrevIcon() {
-  return <Image className="icon" src={arrow_left} alt="arrow icon" />;
+export function ArrowPrevIcon(props: IconProps) {
+  return (
+    <Image className={`${props.hover}`} src={arrow_left} alt="arrow icon" />
+  );
 }
 
-export function CrossIcon() {
-  return <Image className="icon" src={crossIcon} alt="cross icon" />;
+export function CrossIcon(props: IconProps) {
+  return (
+    <Image className={`${props.hover}`} src={crossIcon} alt="cross icon" />
+  );
 }
 
 export function ReturnIcon(props: IconProps) {

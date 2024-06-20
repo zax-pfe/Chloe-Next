@@ -6,6 +6,7 @@ import "../styles/pageItemPhone.css";
 import { Dispatch, SetStateAction } from "react";
 import { ArrowNextIcon, ArrowPrevIcon, CrossIcon } from "./icons";
 import Image from "next/image";
+import ImageSlider from "./imageSlider";
 
 interface PageItemProps {
   index: number;
@@ -25,58 +26,15 @@ function PageItemPhone(props: PageItemProps) {
     props.setVisiblePage(false);
   }
 
-  function handleNextClick() {
-    setActiveThumbnail(activeThumbnail + 1);
-    setActiveImage(artwork.thumbnail[activeThumbnail + 1]);
-  }
-
-  function handlePrevClick() {
-    console.log("ok");
-    setActiveThumbnail(activeThumbnail - 1);
-    setActiveImage(artwork.thumbnail[activeThumbnail - 1]);
-  }
-  function handleClik(index: number) {
-    setActiveThumbnail(index);
-    setActiveImage(artwork.thumbnail[index]);
-  }
   return (
     <div className={"pageItem-container"}>
       <div className="button-container">
-        {activeThumbnail > 0 ? (
-          <div className="button" onClick={() => handlePrevClick()}>
-            <ArrowPrevIcon />
-          </div>
-        ) : (
-          <div className="button" />
-        )}
-
-        {activeThumbnail < index_max_thumbnail - 1 ? (
-          <div className="button" onClick={() => handleNextClick()}>
-            <ArrowNextIcon />
-          </div>
-        ) : (
-          <div className="button" />
-        )}
         <div className="button" onClick={() => handleCloseClick()}>
-          <CrossIcon />
+          <CrossIcon hover="icon-nohover" />
         </div>
       </div>
       <div className="main-container-phone">
-        <Image
-          className="main-image-container-phone"
-          src={activeImage}
-          alt={`cover ${artwork.name}`}
-          placeholder="blur"
-        />
-        <div className="dots-container">
-          {artwork.thumbnail.map((item, index) => (
-            <div
-              key={index}
-              onClick={() => handleClik(index)}
-              className={`dot ${index === activeThumbnail ? "active" : ""}`}
-            ></div>
-          ))}
-        </div>
+        <ImageSlider imageUrls={artwork.thumbnail} />
       </div>
       <div className="description-phone">
         <p>{artwork.name}</p>

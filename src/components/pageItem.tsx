@@ -49,7 +49,7 @@ function PageItem(props: PageItemProps) {
     <div className={"pageItem-container"}>
       <div className="top-container">
         <div onClick={() => handleCloseClick()}>
-          <CrossIcon />
+          <CrossIcon hover="icon" />
         </div>
       </div>
       <div className="main-container">
@@ -58,7 +58,7 @@ function PageItem(props: PageItemProps) {
           <div className="main-container-sub-item">
             {activeThumbnail > 0 && (
               <div onClick={() => handlePrevClick()}>
-                <ArrowPrevIcon />
+                <ArrowPrevIcon hover="icon" />
               </div>
             )}
           </div>
@@ -72,7 +72,7 @@ function PageItem(props: PageItemProps) {
           <div className="main-container-sub-item">
             {activeThumbnail < index_max_thumbnail - 1 && (
               <div onClick={() => handleNextClick()}>
-                <ArrowNextIcon />
+                <ArrowNextIcon hover="icon" />
               </div>
             )}
           </div>

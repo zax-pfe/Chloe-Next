@@ -1,12 +1,10 @@
 .imageslider-container {
-  max-width: 1000px;
-  width: 100%;
-  height: 400px;
-  margin: 0 auto;
+  height: 85vh;
+  display: flex;
 }
 .ImageSlider {
+  height: 60vh;
   width: 100%;
-  height: 100%;
   display: flex;
 }
 
@@ -14,21 +12,8 @@
   object-fit: contain;
   width: 100%;
   height: 100%;
-  /* flex-shrink: 0;
-  flex-grow: 0; */
   min-width: 100%;
-}
-
-.img-slider-button {
-  all: unset;
-  cursor: pointer;
-}
-
-.img-slider-btn > * {
-  stroke: white;
-  fill: black;
-  width: 2rem;
-  height: 2rem;
+  scroll-snap-align: center;
 }
 
 .Scroller {
@@ -38,17 +23,38 @@
   overflow-x: auto;
   scroll-behavior: smooth;
   scrollbar-width: none;
-  /* overflow: hidden; */
+  scroll-snap-type: x mandatory;
 }
 .Scroller::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, Opera */
+  display: none;
 }
 .test {
   border: solid black 1px;
 }
 
-.button-container {
+.button-container-slider {
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 30px;
+}
+
+.dots-container {
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+.dot {
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  background-color: #c2c2c2;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.dot.active {
+  background-color: #6b6b6b;
 }
