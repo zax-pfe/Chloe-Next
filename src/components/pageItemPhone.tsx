@@ -1,11 +1,9 @@
 "use client";
-import { useRouter } from "next/navigation";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { artlist } from "../data/artlist";
 import "../styles/pageItemPhone.css";
 import { Dispatch, SetStateAction } from "react";
-import { ArrowNextIcon, ArrowPrevIcon, CrossIcon } from "./icons";
-import Image from "next/image";
+import { CrossIcon } from "./icons";
 import ImageSlider from "./imageSlider";
 
 interface PageItemProps {
@@ -15,19 +13,13 @@ interface PageItemProps {
 }
 
 function PageItemPhone(props: PageItemProps) {
-  const [activeThumbnail, setActiveThumbnail] = useState(0);
-  const router = useRouter();
   const artwork = artlist[props.index];
   console.log(`artwork ${artwork.name}`);
-  const [activeImage, setActiveImage] = useState(artwork.cover);
-  const index_max_thumbnail = artwork.thumbnail.length;
 
   function handleCloseClick() {
     props.setVisiblePage(false);
   }
   useEffect(() => {
-    const scrollbarWidth =
-      window.innerWidth - document.documentElement.clientWidth;
     document.body.style.overflow = "hidden";
     return () => {
       document.body.style.overflow = "visible";

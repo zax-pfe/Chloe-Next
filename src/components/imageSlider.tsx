@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { ArrowBigLeft, ArrowBigRight } from "lucide-react";
 import { StaticImageData } from "next/dist/shared/lib/get-img-props";
 import Image from "next/image";
 import "../styles/imageSlider.css";
