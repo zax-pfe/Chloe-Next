@@ -13,11 +13,28 @@ interface ImageSliderProps {
 export default function ImageSlider({ imageUrls }: ImageSliderProps) {
   const [activeThumbnail, setActiveThumbnail] = useState(0);
   const [prevScrollLeft, setPrevScrollLeft] = useState(0);
+  const [renderedImages, setRenderedImages] = useState(
+    defineRenderedImages(activeThumbnail)
+  );
+
+  function defineRenderedImages(activeThumbnail: number) {
+    if (activeThumbnail === 0) {
+      console.log("active thumb 0");
+      return imageUrls.slice(0, 2);
+    } else if (activeThumbnail === imageUrls.length - 1) {
+      console.log("active thumb max");
+      return imageUrls.slice(imageUrls.length - 2, imageUrls.length);
+    } else {
+      console.log("active thumb between");
+      return imageUrls.slice(activeThumbnail - 1, activeThumbnail + 2);
+    }
+  }
 
   const scrollerRef = useRef<HTMLDivElement>(null);
 
   const scrollLeft = () => {
     setActiveThumbnail(activeThumbnail - 1);
+    setRenderedImages(defineRenderedImages(activeThumbnail - 1));
     if (scrollerRef.current) {
       scrollerRef.current.scrollBy({
         left: -scrollerRef.current.clientWidth,
@@ -28,6 +45,7 @@ export default function ImageSlider({ imageUrls }: ImageSliderProps) {
 
   const scrollRight = () => {
     setActiveThumbnail(activeThumbnail + 1);
+    setRenderedImages(defineRenderedImages(activeThumbnail + 1));
 
     if (scrollerRef.current) {
       scrollerRef.current.scrollBy({
@@ -49,9 +67,11 @@ export default function ImageSlider({ imageUrls }: ImageSliderProps) {
         if (scrollPosition > prevScrollLeft) {
           // Défilement vers la droite
           setActiveThumbnail(index);
+          // setRenderedImages(defineRenderedImages(activeThumbnail + 1));
         } else if (scrollPosition < prevScrollLeft) {
           // Défilement vers la gauche
           setActiveThumbnail(index);
+          // setRenderedImages(defineRenderedImages(activeThumbnail - 1));
         }
 
         setPrevScrollLeft(scrollPosition);
@@ -81,7 +101,7 @@ export default function ImageSlider({ imageUrls }: ImageSliderProps) {
         </div>
 
         <div className="Scroller" ref={scrollerRef}>
-          {imageUrls.map((url, index) => (
+          {renderedImages.map((url, index) => (
             <Image
               key={index}
               src={url}

@@ -5,8 +5,7 @@ import { lora } from "@/app/fonts";
 import Navbar from "@/components/navbar";
 import NavbarPhone from "@/components/navbar-phone";
 import useWindowSize from "@/hooks/useWindowSize";
-import { useEffect, useState } from "react";
-
+import { cn } from "@/lib/utils";
 import "./globals.css";
 
 export default function RootLayout({

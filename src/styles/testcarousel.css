@@ -1,0 +1,20 @@
+.carousel-container {
+  display: flex;
+  border: solid black 1px;
+  height: 500px;
+  width: 500px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.carousel {
+  width: 300px;
+  height: 300px;
+  border: solid black 1px;
+}
+
+.carousel-content {
+  width: 300px;
+  height: 300px;
+}
