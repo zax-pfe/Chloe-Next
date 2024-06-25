@@ -19,3 +19,7 @@
   gap: 2vw;
   padding-right: 5vw;
 }
+
+.test {
+  border: solid black 1px;
+}

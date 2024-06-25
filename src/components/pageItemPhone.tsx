@@ -4,7 +4,8 @@ import { artlist } from "../data/artlist";
 import "../styles/pageItemPhone.css";
 import { Dispatch, SetStateAction } from "react";
 import { CrossIcon } from "./icons";
-import ImageSlider from "./imageSlider";
+// import ImageSlider from "./imageSlider";
+import ImageSlider from "@/components/imageSliderShadcn";
 
 interface PageItemProps {
   index: number;
@@ -14,8 +15,6 @@ interface PageItemProps {
 
 function PageItemPhone(props: PageItemProps) {
   const artwork = artlist[props.index];
-  console.log(`artwork ${artwork.name}`);
-
   function handleCloseClick() {
     props.setVisiblePage(false);
   }
@@ -34,9 +33,9 @@ function PageItemPhone(props: PageItemProps) {
         </div>
       </div>
       <div className="main-container-phone">
-        <ImageSlider imageUrls={artwork.thumbnail} />
+        <ImageSlider imageslist={artwork.thumbnail} />
       </div>
-      <div className="description-phone">
+      <div className="description-phone test">
         <p>{artwork.name}</p>
         <p>{artwork.materiaux}</p>
         <p>{artwork.date}</p>

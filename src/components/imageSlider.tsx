@@ -100,7 +100,7 @@ export default function ImageSlider({ imageUrls }: ImageSliderProps) {
           )}
         </div>
 
-        <div className="Scroller" ref={scrollerRef}>
+        <div className="scroller" ref={scrollerRef}>
           {renderedImages.map((url, index) => (
             <Image
               key={index}

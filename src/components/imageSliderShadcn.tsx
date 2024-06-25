@@ -5,11 +5,12 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import "../styles/testcarousel.css";
 import { StaticImageData } from "next/dist/shared/lib/get-img-props";
+import Image from "next/image";
+import "../styles/carouselSchadCn.css";
 interface ImageSliderProps {
   imageslist: StaticImageData[];
 }
 
-import { Card, CardContent } from "@/components/ui/card";
 import {
   Carousel,
   CarouselContent,
@@ -23,6 +24,7 @@ export default function ImageSlider({ imageslist }: ImageSliderProps) {
   const [api, setApi] = React.useState<CarouselApi>();
   const [current, setCurrent] = React.useState(0);
   const [count, setCount] = React.useState(0);
+  // const [activeThumbnail, setActiveThumbnail] = useState(0);
 
   React.useEffect(() => {
     if (!api) {
@@ -38,18 +40,30 @@ export default function ImageSlider({ imageslist }: ImageSliderProps) {
   }, [api]);
 
   return (
-    <div className="carousel-container">
-      <Carousel setApi={setApi}>
+    <div className="image-slider-container">
+      <Carousel setApi={setApi} className="carousel-container">
+        <CarouselPrevious />
         <CarouselContent>
-          {Array.from({ length: 5 }).map((_, index) => (
-            <CarouselItem key={index}></CarouselItem>
+          {imageslist.map((Images, index) => (
+            <CarouselItem key={index} className="carousel-item">
+              <Image
+                key={index}
+                src={Images}
+                alt="slider image"
+                className="img-slider-img"
+              />
+            </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious />
         <CarouselNext />
       </Carousel>
-      <div className="py-2 text-center text-sm text-muted-foreground">
-        Slide {current} of {count}
+      <div className="dots-container">
+        {imageslist.map((_, index) => (
+          <div
+            key={index}
+            className={`dot ${index === current - 1 ? "active" : ""}`}
+          ></div>
+        ))}
       </div>
     </div>
   );
