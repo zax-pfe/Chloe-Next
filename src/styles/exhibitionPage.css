@@ -5,7 +5,7 @@
 
 @media (max-width: 900px) {
   .ExDescriptions {
-    margin: 5vh 7vw 5vh 7vw;
+    margin: 5vh 3vw 5vh 3vw;
   }
 }
 
@@ -29,9 +29,10 @@
 
 .ExInfos {
   margin-top: 30px;
+  text-align: justify;
 }
 .para {
-  margin-left: 20px;
+  margin-left: 10px;
 }
 
 .ExImages-container {

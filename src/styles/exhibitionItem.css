@@ -2,7 +2,6 @@
   display: flex;
   /* min-height: 50vh; */
   transition: box-shadow 0.3s;
-  padding: 10px;
 }
 
 @media (max-width: 650px) {
@@ -16,6 +15,7 @@
   .exhibitionItem-container {
     flex-direction: row;
     height: 40vh;
+    padding: 10px;
   }
 }
 
@@ -42,7 +42,8 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  padding-left: 20px;
+  text-align: justify;
+  padding-left: 10px;
 }
 
 .name {
