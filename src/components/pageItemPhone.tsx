@@ -35,7 +35,7 @@ function PageItemPhone(props: PageItemProps) {
       <div className="main-container-phone">
         <ImageSlider imageslist={artwork.thumbnail} />
       </div>
-      <div className="description-phone test">
+      <div className="description-phone">
         <p>{artwork.name}</p>
         <p>{artwork.materiaux}</p>
         <p>{artwork.date}</p>
