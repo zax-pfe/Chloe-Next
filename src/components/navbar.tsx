@@ -5,12 +5,12 @@ import "../styles/navbar.css";
 import Image from "next/image";
 import clsx from "clsx";
 import NavLinks from "./navlinks";
+import useDevice from "@/app/utils/detectDevice";
 
 import { usePathname } from "next/navigation";
 
 export default function Navbar() {
   const pathname = usePathname();
-  console.log(`pathname ${pathname}`);
   return (
     <div className={"navbar-container"}>
       <div className="sub-container logo-container">
