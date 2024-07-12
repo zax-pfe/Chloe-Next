@@ -3,6 +3,8 @@
 import * as React from "react";
 import Drawer from "@mui/material/Drawer";
 import "../styles/drawer.css";
+import NavLinks from "./navlinks";
+
 import { useState } from "react";
 
 import { IoIosMenu } from "react-icons/io";
@@ -21,7 +23,7 @@ export default function PhoneDrawer(props: DrawerInterface) {
 
   const DrawerList = (
     <div className="drawer-container" onClick={toggleDrawer(false)}>
-      <a href="#home" className="link-items">
+      {/* <a href="#home" className="link-items">
         About
       </a>
       <a href="#passions" className="link-items">
@@ -32,7 +34,8 @@ export default function PhoneDrawer(props: DrawerInterface) {
       </a>
       <a href="#contact" className="link-items contact">
         Contact me
-      </a>
+      </a> */}
+      <NavLinks />
     </div>
 
     // <Box

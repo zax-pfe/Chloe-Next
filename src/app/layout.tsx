@@ -13,13 +13,10 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const size = useWindowSize();
-  const isMobile = size.width !== undefined && size.width <= 768;
-
   return (
     <html lang="en">
       <body className={lora.className}>
-        {isMobile ? <NavbarPhone /> : <Navbar />}
+        <Navbar />
         {children}
       </body>
     </html>

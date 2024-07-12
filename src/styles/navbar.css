@@ -23,3 +23,10 @@
 .test {
   border: solid black 1px;
 }
+
+.phoneDrawer-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 4vw;
+}

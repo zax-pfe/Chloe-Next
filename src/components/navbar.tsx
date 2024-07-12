@@ -6,32 +6,28 @@ import Image from "next/image";
 import clsx from "clsx";
 import NavLinks from "./navlinks";
 import useDevice from "@/app/utils/detectDevice";
+import PhoneDrawer from "./phoneDrawer";
 
 import { usePathname } from "next/navigation";
 
 export default function Navbar() {
   const pathname = usePathname();
+  const device = useDevice();
+
   return (
     <div className={"navbar-container"}>
       <div className="sub-container logo-container">
         <Link href="/">Chloe Girten</Link>
       </div>
-      <div className="sub-container links-container">
-        {/* <Link className="nav-item" href="/about">
-          About
-        </Link>
-        <Link className="nav-item" href="/gallery">
-          Gallery
-        </Link>
-
-        <Link className="nav-item" href="/exhibitions">
-          Exhibitions
-        </Link>
-        <Link className="nav-item" href="/contact">
-          Contact
-        </Link> */}
-        <NavLinks />
-      </div>
+      {device === "desktop" ? (
+        <div className="sub-container links-container">
+          <NavLinks />
+        </div>
+      ) : (
+        <div className="phoneDrawer-container">
+          <PhoneDrawer color="black" />
+        </div>
+      )}
     </div>
   );
 }
