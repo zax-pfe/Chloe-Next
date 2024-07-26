@@ -14,11 +14,14 @@ datasource db {
 model Artwork {
   id Int @id @default(autoincrement())
   name String
-  categoryId Int
-  category String
   coverImage String
   materialType String
   dimensions String
   creationDate DateTime
+}
 
+model Users {
+  id Int @id @default(autoincrement())
+  userName String @unique
+  password String
 }
