@@ -1,62 +1,35 @@
-import NextAuth from "next-auth";
-import { PrismaAdapter } from "@next-auth/prisma-adapter";
-import CredentialsProvider from "next-auth/providers/credentials";
+// import NextAuth from "next-auth"
+// import Credentials from "next-auth/providers/credentials"
+// // Your own logic for dealing with plaintext password strings; be careful!
+// import { saltAndHashPassword } from "@/utils/password"
 
-import { db } from "./db";
+// export const { handlers, signIn, signOut, auth } = NextAuth({
+//   providers: [
+//     Credentials({
+//       // You can specify which fields should be submitted, by adding keys to the `credentials` object.
+//       // e.g. domain, username, password, 2FA token, etc.
+//       credentials: {
+//         email: {},
+//         password: {},
+//       },
+//       authorize: async (credentials) => {
+//         let user = null
 
-export const {
-  handlers: { GET, POST },
-  auth,
-  signOut,
-  signIn,
-} = NextAuth({
-  adapter: PrismaAdapter(db),
-  providers: [
-    CredentialsProvider({
-      name: "Credentials",
-      credentials: {
-        username: {
-          label: "Username",
-          type: "text",
-          placeholder: "Enter your username",
-        },
-        password: {
-          label: "Password",
-          type: "password",
-          placeholder: "Enter your password",
-        },
-      },
-      authorize: async (credentials) => {
-        if (!credentials) {
-          return null; // Return null if credentials are undefined
-        }
+//         // logic to salt and hash password
+//         const pwHash = saltAndHashPassword(credentials.password)
 
-        const adminUser = {
-          id: "1",
-          name: "Admin",
-          email: "admin@example.com",
-          role: "admin",
-        };
-        if (
-          credentials.username === process.env.ADMIN_USER &&
-          credentials.password === process.env.ADMIN_PASSWORD
-        ) {
-          return adminUser;
-        } else {
-          return null;
-        }
-      },
-    }),
-  ],
+//         // logic to verify if user exists
+//         user = await getUserFromDb(credentials.email, pwHash)
 
-  callbacks: {
-    // Usualy not needed, here fixing a bug
-    async session({ session, user }: any) {
-      if (session && user) {
-        session.user.id = user.id;
-      }
+//         if (!user) {
+//           // No user found, so this is their first attempt to login
+//           // meaning this is also the place you could do registration
+//           throw new Error("User not found.")
+//         }
 
-      return session;
-    },
-  },
-});
+//         // return user object with the their profile data
+//         return user
+//       },
+//     }),
+//   ],
+// })
