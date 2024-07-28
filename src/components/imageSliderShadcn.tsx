@@ -3,7 +3,6 @@
 import * as React from "react";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import "../styles/testcarousel.css";
 import { StaticImageData } from "next/dist/shared/lib/get-img-props";
 import Image from "next/image";
 import "../styles/carouselSchadCn.css";

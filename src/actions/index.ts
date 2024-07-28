@@ -3,16 +3,25 @@
 import prisma from "../lib/prisma";
 import { redirect } from "next/navigation";
 
-export async function fetchArtworksByCategory(categoryId: number) {
+interface User {
+  id: string;
+  userName: string;
+  password: string;
+}
+
+export async function findUser(userName: string) {
   try {
-    const artworks = await prisma.artwork.findMany({
+    const user = await prisma.users.findUnique({
       where: {
-        categoryId: categoryId,
+        userName: userName,
       },
     });
-    console.log(artworks);
-    return artworks;
+    if (user) {
+      return { ...user, id: user.id.toString() } as User; // Convert id to string
+    }
+    return null;
   } catch (error) {
-    console.error("Error fetching artworks:", error);
+    console.error("Failed to fetch user:", error);
+    throw new Error("Failed to fetch user.");
   }
 }

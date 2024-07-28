@@ -1,7 +1,5 @@
-"use server";
 import { PrismaClient } from "@prisma/client";
 import { hash } from "bcryptjs";
-import { db } from "@/db";
 
 import { admins } from "./admin";
 
@@ -21,5 +19,5 @@ main()
     process.exit(1);
   })
   .finally(async () => {
-    await db.$disconnect();
+    await prisma.$disconnect();
   });
