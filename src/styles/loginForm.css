@@ -6,11 +6,19 @@
 
 .login-container {
   margin-top: 50px;
-  height: 50vh;
-  width: 300px;
+  height: 60vh;
+  width: 400px;
   display: flex;
   flex-direction: column;
   border: solid rgb(167, 167, 167) 2px;
   border-radius: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
+
+.button {
+  height: 50px;
+  width: 100px;
 }

@@ -3,10 +3,8 @@
 import type { Metadata } from "next";
 import { lora } from "@/app/fonts";
 import Navbar from "@/components/navbar";
-import NavbarPhone from "@/components/navbar-phone";
-import useWindowSize from "@/hooks/useWindowSize";
-import { cn } from "@/lib/utils";
 import "./globals.css";
+import Providers from "@/app/providers";
 
 export default function RootLayout({
   children,
@@ -17,7 +15,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={lora.className}>
         <Navbar />
-        {children}
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

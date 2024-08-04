@@ -5,7 +5,8 @@ import Image from "next/image";
 import Link from "next/link";
 
 interface GalleryItemProps {
-  imgData: StaticImageData;
+  // imgData: StaticImageData;
+  imgData: string;
   name: string;
   index: number;
   setActivePage: Dispatch<SetStateAction<number>>;
@@ -26,7 +27,9 @@ function GalleryItem(props: GalleryItemProps) {
         src={props.imgData}
         alt={props.name}
         onClick={() => handleClick()}
-        placeholder="blur"
+        blurDataURL="blur"
+        width={200}
+        height={200}
       />
       {/* </Link> */}
       <p className="artname">{props.name}</p>

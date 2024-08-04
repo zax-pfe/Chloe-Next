@@ -1,27 +1,23 @@
 "use server";
+import { sanityFetch } from "@/sanity/client";
+import { SanityDocument } from "next-sanity";
 
-import prisma from "../lib/prisma";
-import { redirect } from "next/navigation";
+export async function findAllArtworks() {
+  const ARTWORKS_QUERY = `*[_type == "artwork"]{
+    name,
+    "cover": cover.asset->url,
+    "coverWidth": cover.asset->metadata.dimensions.width,
+    "coverHeight": cover.asset->metadata.dimensions.height
+  }`;
 
-interface User {
-  id: string;
-  userName: string;
-  password: string;
-}
+  const artworks = await sanityFetch<SanityDocument[]>({
+    query: ARTWORKS_QUERY,
+  });
 
-export async function findUser(userName: string) {
-  try {
-    const user = await prisma.users.findUnique({
-      where: {
-        userName: userName,
-      },
-    });
-    if (user) {
-      return { ...user, id: user.id.toString() } as User; // Convert id to string
-    }
-    return null;
-  } catch (error) {
-    console.error("Failed to fetch user:", error);
-    throw new Error("Failed to fetch user.");
-  }
+  const artlist = artworks.map((artwork) => ({
+    name: artwork.name,
+    cover: artwork.cover,
+  }));
+
+  return artlist;
 }
