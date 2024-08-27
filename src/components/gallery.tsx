@@ -1,18 +1,26 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { artlist } from "../data/artlist";
+// import { artlist } from "../data/artlist";
 import GalleryItem from "./galleryItem";
 import "../styles/gallery.css";
 import { motion, AnimatePresence } from "framer-motion";
 import PageItem from "./pageItem";
 import PageItemPhone from "./pageItemPhone";
 import useDevice from "../app/utils/detectDevice";
+import { findAllArtworks } from "@/actions";
+
+interface Artwork {
+  name: string;
+  cover: string;
+}
 
 function Gallery() {
   const [visible, setVisible] = useState(false);
   const [activePage, setActivePage] = useState(0);
+  const [artlist, setArtlist] = useState<Artwork[]>([]);
   const index_max = artlist.length;
-  const threshold = 768;
+  const [loading, setLoading] = useState(true);
+
   const device = useDevice();
 
   const itemVariants = {
@@ -23,6 +31,15 @@ function Gallery() {
     },
     hidden: { y: 30, opacity: 0 },
   };
+  useEffect(() => {
+    async function fetchArtworks() {
+      const artworks = await findAllArtworks();
+      setArtlist(artworks);
+      setLoading(false);
+    }
+
+    fetchArtworks();
+  }, []);
 
   return (
     <div>
