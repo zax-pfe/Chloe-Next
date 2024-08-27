@@ -15,13 +15,23 @@ function Gallery() {
   const threshold = 768;
   const device = useDevice();
 
+  const itemVariants = {
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: { duration: 0.5 },
+    },
+    hidden: { y: 30, opacity: 0 },
+  };
+
   return (
     <div>
       <div className="grid-container">
         {artlist.map(({ name, cover }, index) => (
           <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            variants={itemVariants}
+            initial="hidden"
+            whileInView="visible"
             viewport={{ once: true, amount: 0.5 }}
             key={name}
           >

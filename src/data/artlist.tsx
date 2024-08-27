@@ -1,4 +1,4 @@
-import number1 from "../assets/chiffre-1.jpg";
+import number1 from "../assets/numbers/chiffre-1.jpg";
 import number2 from "../assets/numbers/chiffre-2.jpg";
 import number3 from "../assets/numbers/chiffre-3.jpg";
 import number6 from "../assets/numbers/chiffre-6.jpg";

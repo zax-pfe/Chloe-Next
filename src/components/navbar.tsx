@@ -2,8 +2,6 @@
 
 import Link from "next/link";
 import "../styles/navbar.css";
-import Image from "next/image";
-import clsx from "clsx";
 import NavLinks from "./navlinks";
 import useDevice from "@/app/utils/detectDevice";
 import PhoneDrawer from "./phoneDrawer";

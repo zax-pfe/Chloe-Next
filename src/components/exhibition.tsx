@@ -6,14 +6,24 @@ import { exhibitionlist } from "@/data/exhibitionList";
 import { motion, Variants, AnimatePresence } from "framer-motion";
 import ExhibitionItem from "./exhibitionItem";
 
+const exhibitionVariants = {
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: { duration: 0.4 },
+  },
+  hidden: { y: 30, opacity: 0 },
+};
+
 export default function Exhibition() {
   return (
     <div className="exhibition-container">
       {exhibitionlist.map(
         ({ name, id, cover, dates, lieu, descriptions }, index) => (
           <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            variants={exhibitionVariants}
+            initial="hidden"
+            whileInView="visible"
             viewport={{ once: true, amount: 0.5 }}
             key={name}
           >
