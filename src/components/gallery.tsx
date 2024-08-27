@@ -31,15 +31,15 @@ function Gallery() {
     },
     hidden: { y: 30, opacity: 0 },
   };
-  useEffect(() => {
-    async function fetchArtworks() {
-      const artworks = await findAllArtworks();
-      setArtlist(artworks);
-      setLoading(false);
-    }
+  // useEffect(() => {
+  //   async function fetchArtworks() {
+  //     const artworks = await findAllArtworks();
+  //     setArtlist(artworks);
+  //     setLoading(false);
+  //   }
 
-    fetchArtworks();
-  }, []);
+  //   fetchArtworks();
+  // }, []);
 
   return (
     <div>
