@@ -18,6 +18,15 @@ interface Exhibition {
   lieu: string;
 }
 
+const exhibitionVariants = {
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: { duration: 0.4 },
+  },
+  hidden: { y: 30, opacity: 0 },
+};
+
 export default function Exhibition() {
   const [exhibitionList, setExhibitionList] = useState<Exhibition[]>([]);
   const [loading, setLoading] = useState(true);

@@ -23,15 +23,23 @@ function Gallery() {
 
   const device = useDevice();
 
-  useEffect(() => {
-    async function fetchArtworks() {
-      const artworks = await findAllArtworks();
-      setArtlist(artworks);
-      setLoading(false);
-    }
+  const itemVariants = {
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: { duration: 0.5 },
+    },
+    hidden: { y: 30, opacity: 0 },
+  };
+  // useEffect(() => {
+  //   async function fetchArtworks() {
+  //     const artworks = await findAllArtworks();
+  //     setArtlist(artworks);
+  //     setLoading(false);
+  //   }
 
-    fetchArtworks();
-  }, []);
+  //   fetchArtworks();
+  // }, []);
 
   // {exhibitionDetails.descriptions.map((element, index) => (
   //   <p className="para ExInfos" key={index}>
@@ -44,8 +52,9 @@ function Gallery() {
       <div className="grid-container">
         {artlist.map((element, index) => (
           <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            variants={itemVariants}
+            initial="hidden"
+            whileInView="visible"
             viewport={{ once: true, amount: 0.5 }}
             key={element.name}
           >

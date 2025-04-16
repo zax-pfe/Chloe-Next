@@ -13,8 +13,6 @@
   .grid-item {
     height: 250px;
     padding: 10px;
-
-    animation-range-end: 200px;
   }
   .grid-item-image {
     max-width: 100%;
@@ -26,7 +24,6 @@
   .grid-item {
     height: 500px;
     padding: 20px;
-    animation-range-end: 400px;
   }
   .grid-item-image {
     max-width: 80%;
@@ -37,9 +34,6 @@
 .grid-item:hover .artname {
   opacity: 1;
 }
-/* .grid-item:hover {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-} */
 
 .grid-item-image {
   width: auto;
@@ -61,22 +55,3 @@
   opacity: 0; /* Initially hidden */
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
-
-/* .grid-item a {
-  display: block;
-  width: 100%; 
-  height: auto; 
-} */
-
-/* .hidden {
-  opacity: 0;
-  transform: translateY(-100%);
-  transition: all 1s;
-  filter: blur(5px);
-}
-
-.show {
-  opacity: 1;
-  transform: translateX(0);
-  filter: blur(0);
-} */
