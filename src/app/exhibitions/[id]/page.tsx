@@ -25,7 +25,7 @@ function findExhibitionById(exhibitionId: string) {
 }
 
 export default function Page(props: ExhibitionProps) {
-  const exhibition_id = props.params.id;
+  const exhibition_id = props.params.name;
   const exhibitionDetails = findExhibitionById(exhibition_id);
 
   return (
