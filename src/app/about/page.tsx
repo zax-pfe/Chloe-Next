@@ -26,22 +26,23 @@ export default function AboutPage() {
       />
 
       <div className="description-about">
-        <h1 className="about-title">Quéquin qui essaye dentrer</h1>
+        <h1 className="about-title">
+          My work is a continuous exploration of new characters and stories
+        </h1>
 
         <p className="about-text">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
-          mollitia, molestiae quas vel sint commodi repudiandae consequuntur
-          voluptatum laborum numquam blanditiis harum quisquam eius sed odit
-          fugiat iusto fuga praesentium op Reprehenderit, quia. Quo neque error
-          repudiandae fuga? Ipsa laudan
+          My artistic journey has evolved over the years, beginning with
+          animated film and transitioning into ceramics. After completing my
+          master’s in animated film in Ghent, I first moved to France to study
+          ceramics, and later established my studio in Brussels.
         </p>
 
         <p className="about-text">
-          tio, eaque rerum! Provident similique accusantium nemo autem.
-          Veritatis obcaecati tenetur iure eius earum ut molestias architecto
-          voluptate aliquam nihil, eveniet aliquid culpa officia aut! Impedit
-          sit sunt quaerat, odit, tenetur error, harum nesciunt ipsum debitis
-          quas aliquid.
+          My work is a continuous exploration of new characters and stories,
+          ranging from ponies to birds and from palm trees to dogs. Inspired by
+          nature and imagination, my ceramic creations reflect this endless
+          quest. Visitors are invited to immerse themselves in a world that
+          feels both familiar and strange, where imagination comes to life.
         </p>
       </div>
     </motion.div>

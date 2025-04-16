@@ -6,8 +6,14 @@ import { motion, AnimatePresence } from "framer-motion";
 import { StaticImageData } from "next/dist/shared/lib/get-img-props";
 import Image from "next/image";
 import "../styles/carouselSchadCn.css";
+import { Thumbnail_interface } from "@/actions";
+
+// interface ImageSliderProps {
+//   imageslist: StaticImageData[];
+// }
+
 interface ImageSliderProps {
-  imageslist: StaticImageData[];
+  thumbnailList?: Thumbnail_interface[];
 }
 
 import {
@@ -19,7 +25,7 @@ import {
   type CarouselApi,
 } from "@/components/ui/carousel";
 
-export default function ImageSlider({ imageslist }: ImageSliderProps) {
+export default function ImageSlider(props: ImageSliderProps) {
   const [api, setApi] = React.useState<CarouselApi>();
   const [current, setCurrent] = React.useState(0);
   const [count, setCount] = React.useState(0);
@@ -38,18 +44,22 @@ export default function ImageSlider({ imageslist }: ImageSliderProps) {
     });
   }, [api]);
 
+  console.log(` Element list ${props.thumbnailList}`);
+
   return (
     <div className="image-slider-container">
       <Carousel setApi={setApi} className="carousel-container">
         <CarouselPrevious />
         <CarouselContent>
-          {imageslist.map((Images, index) => (
+          {props.thumbnailList?.map((thumbnailImage, index) => (
             <CarouselItem key={index} className="carousel-item">
               <Image
                 key={index}
-                src={Images}
+                src={thumbnailImage.url}
                 alt="slider image"
                 className="img-slider-img"
+                width={200}
+                height={200}
               />
             </CarouselItem>
           ))}
@@ -57,7 +67,7 @@ export default function ImageSlider({ imageslist }: ImageSliderProps) {
         <CarouselNext />
       </Carousel>
       <div className="dots-container">
-        {imageslist.map((_, index) => (
+        {props.thumbnailList?.map((_, index) => (
           <div
             key={index}
             className={`dot ${index === current - 1 ? "active" : ""}`}

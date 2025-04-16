@@ -16,7 +16,7 @@ interface Artwork {
 
 function Gallery() {
   const [visible, setVisible] = useState(false);
-  const [activePage, setActivePage] = useState(0);
+  const [activePage, setActivePage] = useState("");
   const [artlist, setArtlist] = useState<Artwork[]>([]);
   const index_max = artlist.length;
   const [loading, setLoading] = useState(true);
@@ -33,19 +33,25 @@ function Gallery() {
     fetchArtworks();
   }, []);
 
+  // {exhibitionDetails.descriptions.map((element, index) => (
+  //   <p className="para ExInfos" key={index}>
+  //     {element}
+  //   </p>
+  // ))}
+  console.log(`Artlist ${artlist}`);
   return (
     <div>
       <div className="grid-container">
-        {artlist.map(({ name, cover }, index) => (
+        {artlist.map((element, index) => (
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.5 }}
-            key={name}
+            key={element.name}
           >
             <GalleryItem
-              imgData={cover}
-              name={name}
+              imgData={element.cover}
+              name={element.name}
               index={index}
               setActivePage={setActivePage}
               setVisible={setVisible}
@@ -64,13 +70,13 @@ function Gallery() {
           >
             {device === "phone" ? (
               <PageItemPhone
-                index={activePage}
+                name={activePage}
                 setVisiblePage={setVisible}
                 index_max={index_max}
               />
             ) : (
               <PageItem
-                index={activePage}
+                name={activePage}
                 setVisiblePage={setVisible}
                 index_max={index_max}
               />

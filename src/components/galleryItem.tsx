@@ -3,19 +3,36 @@ import { Dispatch, SetStateAction } from "react";
 import type { StaticImageData } from "next/image";
 import Image from "next/image";
 import Link from "next/link";
+import React, { useState, useEffect } from "react";
+import { findArtworkByName } from "@/actions";
+import { Artwork } from "@/actions";
 
 interface GalleryItemProps {
   // imgData: StaticImageData;
   imgData: string;
   name: string;
   index: number;
-  setActivePage: Dispatch<SetStateAction<number>>;
+  setActivePage: Dispatch<SetStateAction<string>>;
   setVisible: Dispatch<SetStateAction<boolean>>;
 }
+// interface Image {
+//   url: string;
+//   width: number;
+//   height: number;
+// }
+
+// interface Artwork {
+//   name: string;
+//   cover: Image;
+//   thumbnail: Image[];
+//   materiaux: string;
+//   dimensions: string;
+//   date: string;
+// }
 
 function GalleryItem(props: GalleryItemProps) {
   function handleClick() {
-    props.setActivePage(props.index);
+    props.setActivePage(props.name);
     props.setVisible(true);
   }
 

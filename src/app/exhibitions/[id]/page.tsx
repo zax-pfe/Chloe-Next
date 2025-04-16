@@ -4,10 +4,11 @@ import { notFound } from "next/navigation";
 import { motion, Variants, AnimatePresence } from "framer-motion";
 import "../../../styles/exhibitionPage.css";
 import Image from "next/image";
+import { findExhibitionByName } from "@/actions";
 
 interface ExhibitionProps {
   params: {
-    id: string;
+    name: string;
   };
 }
 
