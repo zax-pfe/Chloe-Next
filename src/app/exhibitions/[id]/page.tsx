@@ -5,28 +5,33 @@ import { motion, Variants, AnimatePresence } from "framer-motion";
 import "../../../styles/exhibitionPage.css";
 import Image from "next/image";
 import { findExhibitionByName } from "@/actions";
+import { useEffect, useState } from "react";
+import { Exhibition_interface } from "@/actions";
+import { PortableText } from "next-sanity";
 
 interface ExhibitionProps {
   params: {
-    name: string;
+    id: string;
   };
 }
 
-function findExhibitionById(exhibitionId: string) {
-  const exhibition = exhibitionlist.find(
-    (exhibition) => exhibition.id === exhibitionId
+export default function Page(props: ExhibitionProps) {
+  const [exhibition, setExhibition] = useState<Exhibition_interface | null>(
+    null
   );
 
-  if (exhibition) {
-    return exhibition;
-  } else {
-    return notFound();
-  }
-}
+  useEffect(() => {
+    async function fetchExhibitionByName() {
+      const decodedName = decodeURIComponent(props.params.id);
+      console.log("Fetching exhibition with name:", decodedName);
+      const exhibition_found = await findExhibitionByName(decodedName);
+      setExhibition(exhibition_found);
+    }
 
-export default function Page(props: ExhibitionProps) {
-  const exhibition_id = props.params.name;
-  const exhibitionDetails = findExhibitionById(exhibition_id);
+    fetchExhibitionByName();
+  }, [props.params.id]);
+
+  const exhibition_id = props.params.id;
 
   return (
     <div>
@@ -36,20 +41,20 @@ export default function Page(props: ExhibitionProps) {
         transition={{ duration: 0.3 }}
       >
         <div className="ExDescriptions">
-          <h1 className="ExName">{exhibitionDetails.name}</h1>
-          <p className="para ExDate">{exhibitionDetails.dates}</p>
-          <p className="para Exlieu">{exhibitionDetails.lieu}</p>
+          <h1 className="ExName">{exhibition?.name}</h1>
+          <p className="para ExDate">{exhibition?.dates}</p>
+          <p className="para Exlieu">{exhibition?.lieu}</p>
 
-          {exhibitionDetails.descriptions.map((element, index) => (
+          {exhibition?.description.map((element, index) => (
             <p className="para ExInfos" key={index}>
-              {element}
+              <PortableText value={element} />
             </p>
           ))}
         </div>
       </motion.div>
 
       <div className="ExImages-container">
-        {exhibitionDetails.images.map((image, index) => (
+        {exhibition?.images?.map((images, index) => (
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -59,8 +64,10 @@ export default function Page(props: ExhibitionProps) {
           >
             <Image
               className="ExImage"
-              src={image}
+              src={images.url}
               alt="picture from the exhibition"
+              height={images.height}
+              width={images.width}
             />
           </motion.div>
         ))}

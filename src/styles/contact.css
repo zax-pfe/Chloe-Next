@@ -1,0 +1,87 @@
+/* styles/contact.css */
+
+.contact-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 70vh;
+  padding: 2rem;
+}
+
+.contact-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 600px;
+  width: 100%;
+}
+
+.contact-title {
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.contact-items {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 100%;
+}
+
+.contact-item {
+  padding: 1.5rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.contact-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+  gap: 1.5rem;
+}
+
+.contact-icon {
+  transition: color 0.3s ease;
+}
+
+.contact-icon-hover {
+  color: #e1306c; /* Instagram color for both icons when hovered */
+}
+
+.contact-text {
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+  .contact-title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .contact-text {
+    font-size: 1rem;
+  }
+
+  .contact-item {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-container {
+    padding: 1rem;
+  }
+
+  .contact-title {
+    font-size: 1.75rem;
+  }
+
+  .contact-link {
+    gap: 1rem;
+  }
+}
